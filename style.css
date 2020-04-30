@@ -1,0 +1,25 @@
+.def{
+  background-color: #94c01a;
+}
+.image_row{
+
+}
+.img{
+    width:100px;
+    height:100px;
+}
+
+.empty_square{
+  width:100px;
+  height:100px;
+  border:1px solid #000;
+  text-align: center;
+
+
+}
+.empty_row{
+  display: flex;
+}
+.corps{
+  max-width: 1000px;
+}
