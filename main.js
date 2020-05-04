@@ -3,6 +3,14 @@ const rks= document.querySelectorAll('.empty_square');
 const img_row=document.querySelectorAll('.image_row');
 let draggedItem=null;
 
+const but=document.querySelectorAll('.button');
+
+but.addEventListener('click',function(){
+  console.log(new Date());
+});
+
+
+
 for (let i=0; i<imgs.length; i++){
   const img=imgs[i];
   img.addEventListener('dragstart',function(e){

@@ -17,20 +17,20 @@
   <div class="corp">
 
 
-<section class="def"> <h2>Definition</h2>
-  Map generalisation seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
-  Here we present image of generalized roads for the target scale of 1:250 000.
-  The mountain road generalization combined: turn enlargement, shape smoothing and simplifying; in order to avoid symbol coalescence.
-</section>
-<section>  <h2>Images</h2> here are an image of a road from BD route and it's generalisation <br>
+    <section class="def"> <h2>Definition</h2>
+      Map generalisation seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
+
+      The mountain road generalization combined: turn enlargement, shape smoothing and simplifying; in order to avoid symbol coalescence.
+
+    </section>
+<section>  <h2>Images</h2> Here is an intial road and it's generalisation <br>
 <div class="image_row">
-  <img src="images\road_8.png">
-  <img src="images\road_9.png">
-  <img src="images\road_10.png">
+  <img src="images\Initial\i1.png" class="img">
+  <img src="images\pix2pix\p1.png" class="img">
 </div>
 </section>
  <h2>Questions</h2>
-<section>  Q1 : Do you think roads on this image are well genralised ?
+<section>  Q1 : Do you think roads on this image are well simplified ?
 <form>
   <input type="radio" id="vg" name="Q1" value="very good">
   <label for="vg">Very good</label><br>
@@ -41,7 +41,7 @@
   <input type="radio" id="vb" name="Q1" value="very bad">
   <label for="vb">Very bad</label>
 </form></section>
-<section>  Q2 : does this image seems reallist ?
+<section>  Q2 : Do you think this image seems reallist ?
 <form>
   <input type="radio" id="vg" name="Q1" value="very good">
   <label for="vg">Very good</label><br>
@@ -52,7 +52,7 @@
   <input type="radio" id="vb" name="Q1" value="very bad">
   <label for="vb">Very bad</label>
 </form></section>
-<section>  Q3 : do you think the image is readible
+<section>  Q3 : Do you think the image is readible ?
 <form>
   <input type="radio" id="vg" name="Q1" value="very good">
   <label for="vg">Very good</label><br>
@@ -63,7 +63,7 @@
   <input type="radio" id="vb" name="Q1" value="very bad">
   <label for="vb">Very bad</label>
 </form></section>
-<section>  Q3 : do you think the information on this image is well conserved
+<section>  Q3 : Do you think the information on this image are well conserved ?
 <form>
   <input type="radio" id="vg" name="Q1" value="very good">
   <label for="vg">Very good</label><br>
@@ -74,7 +74,10 @@
   <input type="radio" id="vb" name="Q1" value="very bad">
   <label for="vb">Very bad</label>
 </form></section>
-<section>Validation</section>
+<button class="button"
+        type="button">
+    Validate
+</button>
 </div>
 </body>
 
