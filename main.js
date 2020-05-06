@@ -38,14 +38,15 @@ document.addEventListener('click', function (){
     }
 });};
 
-
-
+const previouspos=[img_row[0],img_row[0],img_row[0],img_row[0]];
+console.log(previouspos)
 for (let i=0; i<imgs.length; i++){
   const img=imgs[i];
-  var previouspos=img_row[0]
+  var initpos=img_row[0];
   img.addEventListener('dragstart',function(e){
 
     draggedItem=this;
+    initpos=this.parentNode
 
   });
   img.addEventListener('dragend',function(){
@@ -64,15 +65,22 @@ for (let i=0; i<imgs.length; i++){
       e.preventDefault();
     });
     rk.addEventListener('drop',function(e){
-      aimg= this.querySelectorAll('.img');
-      console.log(aimg);
-            this.append(draggedItem);
-      if(aimg.length>1){
-          console.log('in');
-          aimg[0].remove();
-          previouspos.append(aimg[0]);
+
+      if (this.childNodes.length>1){
+          aimg= this.querySelectorAll('.img');
+          if (aimg[0].id==i){var k=1}else{var k=0};
+          rk.removeChild(aimg[k]);
+          initpos.append(aimg[k]);
+          this.append(draggedItem);
+          previouspos[i]=rk;
+          previouspos[aimg[k].id] =initpos;
       }
-      previouspos=this;
+      else{
+        this.append(draggedItem);
+        previouspos[i]=rk;
+      }
+
+
     });
   }
 }
