@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="corp">
+  <div class="corps">
 
 
     <section class="def"> <h2>Definition</h2>
@@ -31,7 +31,7 @@
 </section>
  <h2>Questions</h2>
 <section>  Q1 : Do you think roads on this image are well simplified ?
-<form>
+<form class="form">
   <input type="radio" id="vg" name="Q1" value="very good">
   <label for="vg">Very good</label><br>
   <input type="radio" id="g" name="Q1" value="good">
@@ -42,7 +42,7 @@
   <label for="vb">Very bad</label>
 </form></section>
 <section>  Q2 : Do you think this image seems reallist ?
-<form>
+<form class="form">
   <input type="radio" id="vg" name="Q1" value="very good">
   <label for="vg">Very good</label><br>
   <input type="radio" id="g" name="Q1" value="good">
@@ -53,7 +53,7 @@
   <label for="vb">Very bad</label>
 </form></section>
 <section>  Q3 : Do you think the image is readible ?
-<form>
+<form class="form">
   <input type="radio" id="vg" name="Q1" value="very good">
   <label for="vg">Very good</label><br>
   <input type="radio" id="g" name="Q1" value="good">
@@ -63,8 +63,8 @@
   <input type="radio" id="vb" name="Q1" value="very bad">
   <label for="vb">Very bad</label>
 </form></section>
-<section>  Q3 : Do you think the information on this image are well conserved ?
-<form>
+<section>  Q4 : Do you think the information on this image are well conserved ?
+<form class="form">
   <input type="radio" id="vg" name="Q1" value="very good">
   <label for="vg">Very good</label><br>
   <input type="radio" id="g" name="Q1" value="good">
@@ -74,10 +74,12 @@
   <input type="radio" id="vb" name="Q1" value="very bad">
   <label for="vb">Very bad</label>
 </form></section>
-<button class="button"
-        type="button">
-    Validate
+<button class="button" id="submitbutton"
+        type="button" disabled=true>
+    <a href="rank.html">   Validate</a>
 </button>
+
+<script src="main.js"></script>
 </div>
 </body>
 
