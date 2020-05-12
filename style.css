@@ -2,11 +2,30 @@
   background-color: #94c01a;
 }
 .image_row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: : center;
+
 
 }
 .img{
     width:100px;
     height:100px;
+        margin: 10px;
+}
+.img3{
+  width:500px;
+  height:175px;
+}
+.imgdemi{
+  width:50px;
+  height:50px;
+}
+
+.imglg{
+  width:50px;
+  height:50px;
 }
 
 .empty_square{
@@ -22,4 +41,10 @@
 }
 .corps{
   max-width: 1000px;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        align-items: center;
 }
