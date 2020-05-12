@@ -14,6 +14,7 @@
 
 <body>
 <?php
+
 $dbconn2 = pg_connect("host=localhost port=5432 dbname=surveyresult");
 echo $dbconn2;
  ?>
