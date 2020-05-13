@@ -3,7 +3,9 @@ function parsePeopleCSVfile() {
 		var url = "/roadGenEval/data/first_test.csv";
 
     console.log(url);
-		var myInit = { method: 'GET'};
+		var myInit = { method: 'PUT',
+    body:"reponse, reponse1, reponse2"
+  };
 		fetch(url,myInit).then(function(response) {response.text().then(function(text) {
       console.log(text);});
     });
