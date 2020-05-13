@@ -1,10 +1,13 @@
 function parsePeopleCSVfile() {
 		// Open a new connection, using the GET request on the URL endpoint
-		var url = "/roadGenEval/data/first_test.csv";
+		var url = "/roadGenEval/data/first_test.txt";
 
     console.log(url);
 		var myInit = { method: 'PUT',
-    body:"reponse, reponse1, reponse2"
+    body:JSON.stringify({
+     "id1":
+     "reponse, reponse1, reponse2"
+    })
   };
 		fetch(url,myInit).then(function(response) {response.text().then(function(text) {
       console.log(text);});
