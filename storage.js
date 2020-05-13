@@ -1,6 +1,6 @@
 function parsePeopleCSVfile() {
 		// Open a new connection, using the GET request on the URL endpoint
-		var url = "/data/first_test.csv";
+		var url = "/roadGenEval/data/first_test.csv";
 
     console.log(url);
 		var myInit = { method: 'GET'};
