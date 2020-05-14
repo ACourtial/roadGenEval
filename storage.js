@@ -1,13 +1,14 @@
+console.log(Date.now()-itime);
+
+
 function parsePeopleCSVfile() {
 		// Open a new connection, using the GET request on the URL endpoint
 		var url = "/roadGenEval/data/first_test.txt";
 
     console.log(url);
 		var myInit = { method: 'PUT',
-    body:JSON.stringify({
-     "id1":
-     "reponse, reponse1, reponse2"
-    })
+    body:body.text() +
+     "id1: reponse, reponse1, reponse2".text()
   };
 		fetch(url,myInit).then(function(response) {response.text().then(function(text) {
       console.log(text);});

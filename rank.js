@@ -3,7 +3,7 @@ const rks= document.querySelectorAll('.empty_square');
 const img_row=document.querySelectorAll('.image_row');
 let draggedItem=null;
 
-const but=document.querySelectorAll('.button');
+
 const cancel=document.getElementById('cancel');
 cancel.addEventListener('click',function(e){
   for (let j=0; j<rks.length; j++){

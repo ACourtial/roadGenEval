@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <meta charset="utf-8">
@@ -13,38 +12,202 @@
 </head>
 
 <body>
-  <div class="corp">
-<h2>Welcome to my survey. </h2>
 
-The goal of this survey is to evaluate serveral technics to generalize roads shape in map.  <br>It should take you about <b>twenty minutes</b>.<br>
+<div class="index" id="entrance">
+  <h2>Welcome to my survey. </h2>
 
-<br>
+  The goal of this survey is to evaluate serveral technics to generalize roads shape in map.  <br>It should take you about <b>twenty minutes</b>.<br>
 
-We will present you images of roads generalized via traditional method at IGN (the french national map agency) and images of generalised roads produce by artificial inteligence (AI) and especially deep learning. This approach aims to provide many example of generalization to a deep neural network in order to extract a proposses that directly produce an image of generalisation. <Br>
-<br>First here is a definition of map generalization and a list a caracteristic of mountain roads genralisation. Then you can find some explanation about the presented images.
-These informations are present on all page of the survey so do not hesitate to read it again when you think it is nessecary. <br>
+  <br>
 
-
-<section class="def"> <h2>Definition</h2>
+  We will present you images of roads generalized via traditional method at IGN (the french national map agency) and images of generalised roads produce by artificial inteligence (AI) and especially deep learning. This approach aims to provide many example of generalization to a deep neural network in order to extract a proposses that directly produce an image of generalisation. <Br>
+    <br>First here is a definition of map generalization and a list a caracteristic of mountain roads genralisation. Then you can find some explanation about the presented images.
+    These informations are present on all page of the survey so do not hesitate to read it again when you think it is nessecary. <br>
+    <section class="def"> <h2>Definition</h2>
   Map generalisation seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
   <img src="images\gen.png" class="img3"><br>
   Here is an example of illustration of map generealization from (Barrault et al, 2001), it represent the generalization of the database BD Topo ® at 1 : 50 000 on a city area by AGENT process. <br>
   <BR>The mountain road generalization combined the following process in order to avoid symbol coalescence.<br>
-<div class="image_row">
+    <div class="image_row">
   <div class="col"><img src="images\enlargement.png" class="img"> turn enlargement </div>
     <div class="col"><img src="images\smoothing.png" class="img"> shape smoothing </div>
       <div class="col"><img src="images\simplify.png" class="img"> simplifying </div>
+    </div>
+    <h2>Data</h2>
+    The intial image came from the database of roads of the french national map agency (IGN) and are detailled for a display at 1:25 000 scale.
+    The target scale is 1:250 000. All images are represented at the same scale in a 2.5km large square. Roads width represent the importance of the road.
+  </section>
+  So are you ready ?<br>
+  <button class="button"
+        type="button" id="start">
+    YES ! Let's start.
+
+  </button>
 </div>
-<h2>Data</h2>
-The intial image came from the database of roads of the french national map agency (IGN) and are detailled for a display at 1:25 000 scale.
-The target scale is 1:250 000. All images are represented at the same scale in a 2.5km large square. Roads width represent the importance of the road.
-</section>
-So are you ready ?<br>
-<button class="button"
-        type="button" >
-    <a href="evaluate.html"> YES ! Let's start.</a>
-</button>
+
+
+<div class="evaluate" id="eval">
+  <h2>Part ONE: Evaluation.</h2>
+  In the following part we will ask you to answere a serie of 3 questions for each of 7 paires of images. <br>
+  We call well generalizaerd an image that follow map generalization and mountain roads generalisation definitions.<br>
+  then , we call realistic images that look like to a road map.<br>
+  Finally, an image is readible if all roads shape and carateristics are distingishable.<br>
+
+  <section class="def">
+    <h2>Definition</h2>
+    <b>Map generalisation</b> seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
+
+    The <b>mountain road generalization</b> combined: turn enlargement, shape smoothing and simplifying; in order to avoid symbol coalescence.
+
+    <h2>Data</h2>
+    The intial image came from the database of roads of the french national map agency (IGN) and are detailled for a display at 1:25 000 scale.
+    The target scale is 1:250 000. All images are represented at the same scale in a 2.5km large square. Roads width represent the importance of the road.
+  </section>
+  <section>  <h2>Images</h2> Here is an intial road and it's generalisation <br>
+  <div class="image_row" id="image_row">
+
+  </div>
+  </section>
+  <h2>Questions</h2>
+  <section>  Q1 : Do you think roads on this image are well generalized ?
+  <form class="form">
+  <input type="radio" id="vg" name="Q1" value="very good">
+  <label for="vg">Very good</label><br>
+  <input type="radio" id="g" name="Q1" value="good">
+  <label for="g">Good</label><br>
+  <input type="radio" id="b" name="Q1" value="bad">
+  <label for="b">Bad</label><br>
+  <input type="radio" id="vb" name="Q1" value="very bad">
+  <label for="vb">Very bad</label>
+  </form></section>
+  <section>  Q2 : Do you think this image seems reallist ?
+  <form class="form">
+  <input type="radio" id="vg" name="Q1" value="very good">
+  <label for="vg">Very good</label><br>
+  <input type="radio" id="g" name="Q1" value="good">
+  <label for="g">Good</label><br>
+  <input type="radio" id="b" name="Q1" value="bad">
+  <label for="b">Bad</label><br>
+  <input type="radio" id="vb" name="Q1" value="very bad">
+  <label for="vb">Very bad</label>
+  </form></section>
+  <section>  Q3 : Do you think the image is readible ?
+  <form class="form">
+  <input type="radio" id="vg" name="Q1" value="very good">
+  <label for="vg">Very good</label><br>
+  <input type="radio" id="g" name="Q1" value="good">
+  <label for="g">Good</label><br>
+  <input type="radio" id="b" name="Q1" value="bad">
+  <label for="b">Bad</label><br>
+  <input type="radio" id="vb" name="Q1" value="very bad">
+  <label for="vb">Very bad</label>
+  </form></section>
+  <button class="button cansubform" id="submitbutton"
+      type="button" disabled=true>
+      Validate
+  </button>
+
 </div>
+
+
+<div class="rank" id="rank">
+  <h2>Part TWO: Ranking.</h2>
+  <section class="def">
+    <h2>Definition</h2>
+    Map generalisation seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
+
+    The mountain road generalization combined: turn enlargement, shape smoothing and simplifying; in order to avoid symbol coalescence.
+    <h2>Data</h2>
+    The intial image came from the database of roads of the french national map agency (IGN) and are detailled for a display at 1:25 000 scale.
+    The target scale is 1:250 000. All images are represented at the same scale in a 2.5km large square. Roads width represent the importance of the road.
+  </section>
+
+  <section>  <h2>Images</h2>   <img src="images\image_rank\i21.png"  class="img" draggable="false"> <br> Here are some generalisation of the previous image <br>
+    <div class="image_row"><img src="images\image_rank\p21.png" draggable="true" class="img" id="0"><img src="images\image_rank\r21.png" draggable="true" class="img" id="1"><img src="images\image_rank\u21.png" draggable="true" class="img" id="2" ><img src="images\image_rank\c21.png" draggable="true" class="img" id="3">
+    </div>
+  </section>
+
+  <section> <h2>Ranking</h2> Drag and drop the generalization in your preference order regarding the generalization.</section>
+  <div class="image_row">The best     <img src="images\fleche.jpg" class="imglg">The worst
+
+  </div><div class="empty_row"><div class="empty_square" value="1"></div><div class="empty_square" value="2"></div><div class="empty_square" value="2"></div><div class="empty_square" value="3"></div>
+  </div>
+  <button class="cancel" id="cancel"
+    type="button">
+    Cancel
+  </button>
+  <button class="button cansubrank"
+    type="button"
+    >
+    Validate
+
+  </button>
+  <script src="rank.js"></script>
+</div>
+
+
+<div class="output" id= "out">
+  <h2>Thank you for your participate, the survey is almost finish. </h2>
+
+  How often do you use map (paper or online map):
+  <form>
+    <input type="radio" id="d" name="O1" value="Daily">
+    <label for="vg">Daily</label><br>
+    <input type="radio" id="w" name="O1" value="Weekly">
+    <label for="g">Weekly</label><br>
+    <input type="radio" id="M" name="O1" value="Mont hly">
+    <label for="b">Monthly</label><br>
+    <input type="radio" id="L" name="O1" value="Less often">
+    <label for="vb">Less often</label>
+  </form>
+  <br>
+
+  How familiar were you with the concept of map generalization before this test:
+
+  <form>
+    <input type="radio" id="W1" name="O2" value="W1">
+    <label for="vg">Well, I am a specialist of map generalisation</label><br>
+    <input type="radio" id="W2" name="O2" value="W2">
+    <label for="vg">Well, I am a specialist of geo-information or visualisation</label><br><br>
+    <input type="radio" id="M1" name="O2" value="M1">
+    <label for="g">Medium, I had eared about it during my studies.</label><br>
+    <input type="radio" id="M2" name="O2" value="M2">
+    <label for="g">Medium, I have eared about it in an other context.</label><br><br>
+  <input type="radio" id="L" name="O2" value="L">
+  <label for="vb">Low, I did not eared about this before</label>
+  </form><br>
+
+  Are you :
+  <form>
+  <input type="radio" id="Male" name="O3" value="Male">
+  <label for="vg">A man. </label><br>
+  <input type="radio" id="Female" name="O3" value="Female">
+  <label for="vg">A woman</label><br>
+  <input type="radio" id="Other" name="O3" value="Other">
+  <label for="g">Other / I do not want to answere</label><br>
+  </form><br>
+
+  Are you aged :
+  <form>
+  <input type="radio" id="Male" name="O4" value="Male">
+  <label for="vg">Less than 25. </label><br>
+  <input type="radio" id="Female" name="O4" value="Female">
+  <label for="vg">From 25 to 50.</label><br>
+  <input type="radio" id="Female" name="O4" value="Female">
+  <label for="vg">More than 50.</label><br>
+  <input type="radio" id="Other" name="O4" value="Other">
+  <label for="g">I do not want to answere</label><br>
+  </form><br>
+
+  <button class="button cansubfinal" id="submitbutton"
+      type="button" disabled=true>
+  Submit.
+  </button>
+</div>
+
+
+<script src="firstpage.js"></script>
+<script src="cansubmit.js"></script>
 </body>
 
 </html>
