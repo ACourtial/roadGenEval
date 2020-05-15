@@ -1,7 +1,7 @@
 var id =257;
 var itime=Date.now();
 var page=0;
-var url = "ACourtial/roadGenEval/data/first_test.txt";
+var url = "/data/first_test.csv";
 
 window.addEventListener('beforeunload',function (event){
   // Cancel the event as stated by the standard.
