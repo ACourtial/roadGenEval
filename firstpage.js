@@ -57,6 +57,7 @@ const butfin=document.querySelectorAll(".cansubfinal");
 document.getElementById("eval").style.display = "none";
 document.getElementById("rank").style.display = "none";
 document.getElementById("out").style.display = "none";
+document.getElementById("thanks").style.display = "none";
 
 //Boutton et changement de page
 const butt=document.querySelectorAll(".button");
@@ -134,8 +135,11 @@ function open_next(page){
     document.getElementById("rank").style.display = "none";
     document.getElementById("out").style.display = "inherit";
   }else if (page>14){
-    console.log('merci');
-   // TODO: page de merci
+      document.getElementById("out").style.display = "none";
+      document.getElementById("rank").style.display = "none";
+      document.getElementById("entrance").style.display = "none";
+      document.getElementById("eval").style.display = "none";
+      document.getElementById("thanks").style.display = "inherit";
  }else{
     document.getElementById("entrance").style.display = "none";
     document.getElementById("rank").style.display = "none";
