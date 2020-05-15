@@ -1,4 +1,4 @@
-var id =257;
+var id =0;
 var itime=Date.now();
 var page=0;
 var url = "https://acourtial.github.io/roadGenEval/data/first_test.csv";
@@ -73,18 +73,15 @@ function saisir(page){
     }
 
   } else if (page==15) {
-
     saisie+=" infos,"
-    var f = document.querySelectorAll('.form');
-    for (var question = 0; question <f.length; question++) {
+    var f = document.querySelectorAll('.infos');
+    for (let question = 0; question <f.length; question++) {
       b=f[question].length;
-      var fill=false
-      for (var opt=0; opt<b;opt++){
+      console.log(f[question]);
+      for (let opt=0; opt<b;opt++){
         if (f[question][opt].checked) {saisie+=opt+",";}
       }
-
     }
-
   }else if (page>14 ){
     console.log("no change");
   }else if (page<1){
@@ -93,10 +90,9 @@ function saisir(page){
     var im=sequence_e[page-1];
     saisie+=" eval "+im+",";
     var f = document.querySelectorAll('.form');
-    for (var question = 0; question <f.length; question++) {
+    for (let question = 0; question <f.length; question++) {
       b=f[question].length;
-      var fill=false
-      for (var opt=0; opt<b;opt++){
+      for (let opt=0; opt<b;opt++){
         if (f[question][opt].checked) {saisie+=opt+",";}
       }
   }
