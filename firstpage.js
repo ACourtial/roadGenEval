@@ -71,7 +71,7 @@ function saisir(page){
     for (let question = 0; question <f.length; question++) {
       saisie+=f[question].querySelectorAll(".img")[0].id+",";
     }
-    saisie+="/b"
+
   } else if (page==15) {
 
     saisie+=" infos,"
@@ -84,7 +84,7 @@ function saisir(page){
       }
 
     }
-    saisie+="/b"
+
   }else if (page>14 ){
     console.log("no change");
   }else if (page<1){
@@ -100,7 +100,7 @@ function saisir(page){
         if (f[question][opt].checked) {saisie+=opt+",";}
       }
   }
-      saisie+="/b"
+
 }}
 
 
