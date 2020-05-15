@@ -63,6 +63,7 @@ butfin[0].addEventListener('click',function(){
 
 function saisir(page){
   // TODO: remplir les reponses
+
   if(page==7 ||page==14){
     var im=sequence_r[(page-1)%6];
     var f =document.querySelectorAll(".empty_square");
@@ -71,7 +72,7 @@ function saisir(page){
       saisie+=f[question].querySelectorAll(".img")[0].id+",";
     }
     saisie+="/b"
-  } else if (page==14) {
+  } else if (page==15) {
 
     saisie+=" infos,"
     var f = document.querySelectorAll('.form');
@@ -84,10 +85,12 @@ function saisir(page){
 
     }
     saisie+="/b"
-  }else if (page>14 || page<1){
+  }else if (page>14 ){
     console.log("no change");
+  }else if (page<1){
+    saisie=id;
  }else{
-    var im=sequence_e[page];
+    var im=sequence_e[page-1];
     saisie+=" eval "+im+",";
     var f = document.querySelectorAll('.form');
     for (var question = 0; question <f.length; question++) {
