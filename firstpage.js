@@ -3,13 +3,6 @@ var itime=Date.now();
 var page=0;
 var url = "https://acourtial.github.io/roadGenEval/data/first_test.csv";
 
-window.addEventListener('beforeunload',function (event){
-  // Cancel the event as stated by the standard.
-  event.preventDefault();
-  // Chrome requires returnValue to be set.
-  event.returnValue = '';
-
-});
 
 
 var tab_e=[["r1","p2","c3","r5","p6","c7"," ","r9","p10","c11","r13","p14","c15"],
@@ -24,16 +17,38 @@ var tab_e=[["r1","p2","c3","r5","p6","c7"," ","r9","p10","c11","r13","p14","c15"
          ]
 var tab_r=[[1,5],[2,4],[3,6],[5,1],[4,2],[6,3]]
 
-// TODO: GET_id
-var myInit = { method: 'GET'};
-fetch(url,myInit).then(function(response) {response.text().then(function(text) {
-    console.log(text);});
-});
-var saisie=String(id);
 
 
+var saisie=0;
 var sequence_e=tab_e[id%8];
 var sequence_r=tab_r[id%3];
+
+window.addEventListener('beforeunload',function (event){
+  // Cancel the event as stated by the standard.
+  event.preventDefault();
+  // Chrome requires returnValue to be set.
+  event.returnValue = '';
+
+});
+
+
+
+
+var myInit = { method: 'GET'};
+fetch(url,myInit).then(function(response) {response.text().then(function(text) {
+  var data = text.split('\n');
+  var derniere_ligne=data[data.length-2].split(',');
+  id=parseInt(derniere_ligne[0],10)+1;
+  })
+});
+
+document.getElementById('start').addEventListener('click',function(){
+  console.log(id);
+  saisie=String(id);
+  sequence_e=tab_e[id%8];
+  sequence_r=tab_r[id%3];
+});
+
 
 
 const butfin=document.querySelectorAll(".cansubfinal");
@@ -45,7 +60,7 @@ document.getElementById("out").style.display = "none";
 
 //Boutton et changement de page
 const butt=document.querySelectorAll(".button");
-var saisie="";
+
 for (let but=0; but< butt.length;but++){
   butt[but].addEventListener("click", function() {
   saisir(page);
@@ -62,8 +77,6 @@ butfin[0].addEventListener('click',function(){
 });
 
 function saisir(page){
-  // TODO: remplir les reponses
-
   if(page==7 ||page==14){
     var im=sequence_r[(page-1)%6];
     var f =document.querySelectorAll(".empty_square");
@@ -82,10 +95,8 @@ function saisir(page){
         if (f[question][opt].checked) {saisie+=opt+",";}
       }
     }
-  }else if (page>14 ){
+  }else if (page>14 ||page<1){
     console.log("no change");
-  }else if (page<1){
-    saisie=id;
  }else{
     var im=sequence_e[page-1];
     saisie+=" eval "+im+",";
@@ -112,7 +123,6 @@ function open_next(page){
   if(page==6 ||page==13){
 
     document.getElementById("eval").style.display = "none";
-    // TODO: choix image_rank selon sequence
         var im=sequence_r[page%6];
 
         document.getElementById("init_image").innerHTML="<img src=\"images\\image_rank\\i2"+im+".png\"  class=\"img\" draggable=\"false\">";
