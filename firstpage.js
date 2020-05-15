@@ -1,9 +1,15 @@
-var id =0;
+var id =257;
 var itime=Date.now();
 var page=0;
 var url = "/data/first_test.txt";
 
+window.addEventListener('beforeunload',function (event){
+  // Cancel the event as stated by the standard.
+  event.preventDefault();
+  // Chrome requires returnValue to be set.
+  event.returnValue = '';
 
+});
 
 
 var tab_e=[["r1","p2","c3","r5","p6","c7"," ","r9","p10","c11","r13","p14","c15"],
@@ -42,8 +48,9 @@ const butt=document.querySelectorAll(".button");
 var saisie="";
 for (let but=0; but< butt.length;but++){
   butt[but].addEventListener("click", function() {
-  reinitialiser();
   saisir(page);
+  reinitialiser();
+
   open_next(page);
   page+=1;
 });
@@ -56,19 +63,42 @@ butfin[0].addEventListener('click',function(){
 
 function saisir(page){
   // TODO: remplir les reponses
-  if(page==6 ||page==13){
-    var im=sequence_r[page%6];
-    saisie+="rank"+im+","
+  if(page==7 ||page==14){
+    var im=sequence_r[(page-1)%6];
+    var f =document.querySelectorAll(".empty_square");
+    saisie+=" rank 2"+im+",";
+    for (let question = 0; question <f.length; question++) {
+      saisie+=f[question].querySelectorAll(".img")[0].id+",";
+    }
+    saisie+="/b"
   } else if (page==14) {
-    saisie+="infos,"
-  }else if (page>14){
-    console.log("end");
- }else{
 
+    saisie+=" infos,"
+    var f = document.querySelectorAll('.form');
+    for (var question = 0; question <f.length; question++) {
+      b=f[question].length;
+      var fill=false
+      for (var opt=0; opt<b;opt++){
+        if (f[question][opt].checked) {saisie+=opt+",";}
+      }
+
+    }
+    saisie+="/b"
+  }else if (page>14 || page<1){
+    console.log("no change");
+ }else{
     var im=sequence_e[page];
-    saisie+="eval"+im+","
+    saisie+=" eval "+im+",";
+    var f = document.querySelectorAll('.form');
+    for (var question = 0; question <f.length; question++) {
+      b=f[question].length;
+      var fill=false
+      for (var opt=0; opt<b;opt++){
+        if (f[question][opt].checked) {saisie+=opt+",";}
+      }
   }
-}
+      saisie+="/b"
+}}
 
 
 function registre(saisie,time){
@@ -88,7 +118,7 @@ function open_next(page){
 
         document.getElementById("init_image").innerHTML="<img src=\"images\\image_rank\\i2"+im+".png\"  class=\"img\" draggable=\"false\">";
         document.getElementById("empty_row").innerHTML="<div class=\"empty_square\" value=\"1\"></div><div class=\"empty_square\" value=\"2\"></div><div class=\"empty_square\" value=\"2\"></div><div class=\"empty_square\" value=\"2\"></div>"
-        document.getElementById("row").innerHTML="<img src=\"images\\image_rank\\p2"+im+".png\" draggable=\"true\" class=\"img\" id=\"0\"><img src=\"images\\image_rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"1\"><img src=\"images\\image_rank\\u2"+im+".png\" draggable=\"true\" class=\"img\" id=\"2\" ><img src=\"images\\image_rank\\c2"+im+".png\" draggable=\"true\" class=\"img\" id=\"3\">";
+        document.getElementById("row").innerHTML="<img src=\"images\\image_rank\\p2"+im+".png\" draggable=\"true\" class=\"img\" id=\"p\"><img src=\"images\\image_rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"r\"><img src=\"images\\image_rank\\u2"+im+".png\" draggable=\"true\" class=\"img\" id=\"u\" ><img src=\"images\\image_rank\\c2"+im+".png\" draggable=\"true\" class=\"img\" id=\"c\">";
     document.getElementById("rank").style.display = "inherit";
     draganddrop();
   } else if (page==14) {

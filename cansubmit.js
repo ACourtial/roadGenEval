@@ -38,7 +38,6 @@ document.addEventListener('click', function (){
 const butrank=document.querySelectorAll('.cansubrank');
 
 document.addEventListener('drop', function (){
-  console.log('saleté de voisin pose ton marteau si tu veux pas que je te le rentre dans le front');
     var f = document.querySelectorAll(".empty_square");
     var cansubmit = true;
     for (var question = 0; question <f.length; question++) {
