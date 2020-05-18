@@ -118,8 +118,8 @@ function registre(saisie,time){
   // TODO:register la saisie et du time
   console.log('register a coder ');
   var myInit = { method: 'PUT',
-  content:data + saisie,
-  mode: 'cors',
+  body:data + saisie,
+  mode: 'cors'
 };
   fetch(url,myInit).then(function(response) {console.log(response.text());
   }).then(fetch(url,{method:'GET'}).then(function(response) {console.log(response.text());
