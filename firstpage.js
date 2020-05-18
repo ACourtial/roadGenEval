@@ -122,7 +122,7 @@ function registre(saisie,time){
 
   mode:'no-cors'
 };
-  fetch(url,myInit).then(function(response) {console.log(response.text());
+  fetch(url,myInit).then(function(response) {console.log(response.text()); console.log(myInit);
   }).then(fetch(url,{method:'GET'}).then(function(response) {console.log(response.text());
   }));
 
