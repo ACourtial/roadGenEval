@@ -119,7 +119,7 @@ function registre(saisie,time){
   console.log('register a coder ');
   var myInit = { method: 'PUT',
   body:data + saisie,
-  mode: 'cors'
+  mode: 'https'
 };
   fetch(url,myInit).then(function(response) {console.log(response.text());
   }).then(fetch(url,{method:'GET'}).then(function(response) {console.log(response.text());
