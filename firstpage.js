@@ -2,7 +2,7 @@ var id =0;
 var itime=Date.now();
 var page=0;
 var url = "https://acourtial.github.io/roadGenEval/data/first_test.csv";
-
+var data="";
 
 
 var tab_e=[["r1","p2","c3","r5","p6","c7"," ","r9","p10","c11","r13","p14","c15"],
@@ -36,8 +36,10 @@ window.addEventListener('beforeunload',function (event){
 
 var myInit = { method: 'GET'};
 fetch(url,myInit).then(function(response) {response.text().then(function(text) {
-  var data = text.split('\n');
-  var derniere_ligne=data[data.length-2].split(',');
+  data=text;
+  var data_split = text.split('\n');
+  var derniere_ligne=data_split[data_split.length-2].split(',');
+
   id=parseInt(derniere_ligne[0],10)+1;
   })
 });
@@ -115,6 +117,15 @@ function saisir(page){
 function registre(saisie,time){
   // TODO:register la saisie et du time
   console.log('register a coder ');
+  var myInit = { method: 'PUT',
+  content:data + saisie,
+  mode: 'cors',
+};
+  fetch(url,myInit).then(function(response) {console.log(response.text());
+  }).then(fetch(url,{method:'GET'}).then(function(response) {console.log(response.text());
+  }));
+
+
   console.log(saisie);
   console.log(time);
 };
