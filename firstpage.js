@@ -116,15 +116,16 @@ function saisir(page){
 
 function registre(saisie,time){
   // TODO:register la saisie et du time
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "text/csv");
   console.log('register a coder changment est il pris en compte ? ');
-  var myInit = { method: 'POST',
+  var myInit = { method: 'POST',mode:'no-cors',
   body:data + saisie,
-
-  mode:'no-cors'
+  headers:myHeaders
 };
+url="https://raw.githubusercontent.com/ACourtial/roadGenEval/master/data/first_test.csv"
   fetch(url,myInit).then(function(response) {console.log(response.text()); console.log(myInit);
-  }).then(fetch(url,{method:'GET'}).then(function(response) {console.log(response.text());
-  }));
+  });
 
 
   console.log(saisie);
