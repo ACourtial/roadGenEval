@@ -1,4 +1,4 @@
-Access-Control-Allow-Origin: file://,https://acourtial.github.io/,*
+Access-Control-Allow-Origin: file://, https://acourtial.github.io/, *, null
 Access-Control-Allow-Methods: PUT, DELETE, POST, *
 Access-Control-Allow-Headers: *
 
