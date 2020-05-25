@@ -46,7 +46,7 @@ fetch(url,myInit).then(function(response) {response.text().then(function(text) {
 
 document.getElementById('start').addEventListener('click',function(){
   console.log(id);
-  saisie=String(id);
+  saisie=String(id)+",";
   sequence_e=tab_e[id%8];
   sequence_r=tab_r[id%3];
 });
@@ -121,7 +121,8 @@ function registre(saisie,time){
   console.log('register a coder changment est il pris en compte ? ');
   var myInit = { method: 'POST',mode:'no-cors',
   body:data + saisie,
-  headers:myHeaders
+  headers:myHeaders,
+  credentials:"same-origin"
 };
 url="https://raw.githubusercontent.com/ACourtial/roadGenEval/master/data/first_test.csv"
   fetch(url,myInit).then(function(response) {console.log(response.text()); console.log(myInit);
