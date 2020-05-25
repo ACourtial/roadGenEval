@@ -116,10 +116,11 @@ function saisir(page){
 
 function registre(saisie,time){
   // TODO:register la saisie et du time
+  console.log('sans nocors');
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "text/csv");
   console.log('register a coder changment est il pris en compte ? ');
-  var myInit = { method: 'POST',mode:'no-cors',
+  var myInit = { method: 'POST',
   body:data + saisie,
   headers:myHeaders,
   credentials:"same-origin"
