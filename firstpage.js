@@ -126,7 +126,7 @@ function registre(saisie,time){
   credentials:"same-origin"
 };
           console.log('initurl');
-#url="https://raw.githubusercontent.com/ACourtial/roadGenEval/master/data/first_test.csv"
+//url="https://raw.githubusercontent.com/ACourtial/roadGenEval/master/data/first_test.csv"
   fetch(url,myInit).then(function(response) {console.log(response.text()); console.log(myInit);
   });
 
