@@ -125,7 +125,8 @@ function registre(saisie,time){
   headers:myHeaders,
   credentials:"same-origin"
 };
-url="https://raw.githubusercontent.com/ACourtial/roadGenEval/master/data/first_test.csv"
+          console.log('initurl');
+#url="https://raw.githubusercontent.com/ACourtial/roadGenEval/master/data/first_test.csv"
   fetch(url,myInit).then(function(response) {console.log(response.text()); console.log(myInit);
   });
 
