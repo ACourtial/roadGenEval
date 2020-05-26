@@ -116,9 +116,10 @@ function saisir(page){
 
 function registre(saisie,time){
   // TODO:register la saisie et du time
-  console.log('sans nocors');
+  console.log('sans nocors ,, with allow');
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "text/csv");
+  myHeaders.append("Allow","POST");
   console.log('register a coder changment est il pris en compte ? ');
   var myInit = { method: 'POST',
   body:data + saisie,
