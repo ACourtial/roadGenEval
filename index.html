@@ -7,11 +7,19 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="style.css" rel="stylesheet">
-  <title>Welcome</title>
+  <title>Roads generalization</title>
 
 </head>
 
 <body>
+  <section class="def" id="def">
+    <h2>Reminder</h2>
+    <b>Map generalisation</b> seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
+    The <b>mountain road generalization</b> combined: turn enlargement, shape smoothing and simplifying; in order to avoid symbol coalescence.<br>
+    The intial image came from the database of roads of the french national map agency (IGN) and are detailled for a display at 1:25 000 scale.
+    The target scale is 1:250 000. All images are represented at the same scale in a 2.5km large square. Roads width represent the importance of the road.<br>
+  </section>
+  <br>
 <progress id="progress" max="100" value=0>  </progress>
 <div class="index" id="entrance">
   <h2>Welcome to my survey. </h2>
@@ -41,23 +49,16 @@
 </div>
 
 <div class="evaluate" id="eval">
-  <h2>Evaluation part.</h2>
+  <h2>Evaluation</h2>
   In the following part we will ask you to answere a serie of 3 questions for each of 7 paires of images. <br>
-  We call well generalizaerd an image that follow map generalization and mountain roads generalisation definitions.<br>
-  then , we call realistic images that look like to a road map.<br>
-  Finally, an image is readible if all roads shape and carateristics are distingishable.<br>
-  <section class="def">
-    <h2>Definition</h2>
-    <b>Map generalisation</b> seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
-    The <b>mountain road generalization</b> combined: turn enlargement, shape smoothing and simplifying; in order to avoid symbol coalescence.
-    <h2>Data</h2>
-    The intial image came from the database of roads of the french national map agency (IGN) and are detailled for a display at 1:25 000 scale.
-    The target scale is 1:250 000. All images are represented at the same scale in a 2.5km large square. Roads width represent the importance of the road.
-  </section>
-  <section>  <h2>Images</h2> Here is an intial road and it's generalisation <br>
+  We call well <b>generalized</b> an image that follow map generalization and mountain roads generalisation definitions.<br>
+  Then , we call <b>realistic</b> images that look like to a road map.<br>
+  Finally, an image is <b>readible</b> if all roads shape and carateristics are distingishable.<br>
+
+  <section>  <h4>Images</h4> Here is an intial road and it's generalisation <br>
   <div class="image_row" id="image_row"></div>
   </section>
-  <h2>Questions</h2>
+  <h4>Questions</h4>
   <section>  Q1 : Do you think roads on this image are well generalized ?
   <form class="form">
   <input type="radio" id="vg1" name="Q1" value="very good">
@@ -98,19 +99,13 @@
 
 
 <div class="rank" id="rank">
-  <h2>Ranking part.</h2>
-  <section class="def">
-    <h2>Definition</h2>
-    Map generalisation seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
-    The mountain road generalization combined: turn enlargement, shape smoothing and simplifying; in order to avoid symbol coalescence.
-    <h2>Data</h2>
-    The intial image came from the database of roads of the french national map agency (IGN) and are detailled for a display at 1:25 000 scale.
-    The target scale is 1:250 000. All images are represented at the same scale in a 2.5km large square. Roads width represent the importance of the road.
-  </section>
-  <section>  <h2>Images</h2>   <div id="init_image"></div>  <br> Here are some generalisation of the previous image <br>
+
+  <h2>Ranking</h2>
+
+  <section>  <h4>Images</h4>   <div id="init_image"></div>  <br> Here are some generalisation of the previous image <br>
     <div class="image_row" id="row"></div>
   </section>
-  <section> <h2>Ranking</h2> Drag and drop the generalization in your preference order regarding the generalization.</section>
+  <section> <h4>Ranking</h4> Drag and drop the generalization in your preference order.</section>
   <div class="image_row">The best     <img src="images\fleche.jpg" class="imglg">The worst</div>
   <div class="empty_row"  id="empty_row"></div>
   <button class="cancel" id="cancel" type="button">Cancel</button>
@@ -119,7 +114,7 @@
 
 
 <div class="output" id= "out">
-  <h2>Participant information.</h2>
+  <h2>Participant information</h2>
   How often do you use map (paper or online map):
   <form class='infos'>
     <input type="radio" id="d" name="O1" value="Daily">

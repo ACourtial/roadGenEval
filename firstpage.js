@@ -29,6 +29,8 @@ const progress =document.getElementById('progress');
 
 
 //Initial display
+document.getElementById("def").style.display = "none";
+document.getElementById("progress").style.display = "none";
 document.getElementById("eval").style.display = "none";
 document.getElementById("rank").style.display = "none";
 document.getElementById("out").style.display = "none";
@@ -135,6 +137,8 @@ function open_next(page){
   progress.value=page*100/15
   if(page==6 ||page==13){
     var im=sequence_r[page%6];
+    document.getElementById("def").style.display = "inherit";
+    document.getElementById("progress").style.display = "inherit";
     document.getElementById("eval").style.display = "none";
     document.getElementById("send").style.display = "none";
     document.getElementById("init_image").innerHTML="<img src=\"images\\image_rank\\i2"+im+".png\"  class=\"img\" draggable=\"false\">";
@@ -143,19 +147,25 @@ function open_next(page){
     document.getElementById("rank").style.display = "inherit";
     draganddrop();
   } else if (page==14) {
+    document.getElementById("def").style.display = "none";
+    document.getElementById("progress").style.display = "inherit";
     document.getElementById("rank").style.display = "none";
     document.getElementById("out").style.display = "inherit";
     document.getElementById("send").style.display = "inherit";
   }else if (page>14){
       finish=true;
+      document.getElementById("progress").style.display = "inherit";
       document.getElementById("send").style.display = "none";
       document.getElementById("out").style.display = "none";
       document.getElementById("rank").style.display = "none";
       document.getElementById("entrance").style.display = "none";
       document.getElementById("eval").style.display = "none";
       document.getElementById("thanks").style.display = "inherit";
+      document.getElementById("def").style.display = "none";
  }else{
     var im=sequence_e[page];
+    document.getElementById("def").style.display = "inherit";
+    document.getElementById("progress").style.display = "inherit";
     document.getElementById("entrance").style.display = "none";
     document.getElementById("rank").style.display = "none";
     document.getElementById("send").style.display = "none";
