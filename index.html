@@ -14,48 +14,48 @@
 <body>
   <section class="def" id="def">
     <h2>Reminder</h2>
-    <b>Map generalisation</b> seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
-    The <b>mountain road generalization</b> combined: turn enlargement, shape smoothing and simplifying; in order to avoid symbol coalescence.<br>
-    The intial image came from the database of roads of the french national map agency (IGN) and are detailled for a display at 1:25 000 scale.
-    The target scale is 1:250 000. All images are represented at the same scale in a 2.5km large square. Roads width represent the importance of the road.<br>
+    <b>Map generalization</b> seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide a readable map and preserve the geography depicted by the initial dataset.<br>
+    The <b>generalization of mountain roads</b> combines the following operations/transformations: bend enlargement, shape smoothing and simplification (to avoid symbol coalescence).<br>
+    The intial image comes from the topographic database of the French national mapping agency (IGN). These roads are detailed for a display between 1:10 000 scale and 1:25 000 scale.
+    The target scale is 1:250 000 and the reference data is generalised for an optimal display at this scale. All images are represented at the same scale in a 2.5km large square. Road symbol width is adapted to the importance of the road (more important roads have wider symbols).<br>
   </section>
   <br>
 <progress id="progress" max="100" value=0>  </progress>
 <div class="index" id="entrance">
   <h2>Welcome to my survey. </h2>
-  The goal of this survey is to evaluate serveral technics to generalize roads shape in map.  <br>It should take you about <b>twenty minutes</b>.<br>
+  The goal of this survey is to evaluate several techniques to generalize roads in cartographic maps.  <br>It should take you around <b>twenty minutes</b>.<br>
   <br>
-  We will present you images of roads generalized via traditional method at IGN (the french national map agency) and images of generalised roads produce by artificial inteligence (AI) and especially deep learning. This approach aims to provide many example of generalization to a deep neural network in order to extract a proposses that directly produce an image of generalisation. <Br>
-  <br>First here is a definition of map generalization and a list a caracteristic of mountain roads genralisation. Then you can find some explanation about the presented images.
-  These informations are present on all page of the survey so do not hesitate to read it again when you think it is nessecary. <br>
+  We will present you images of roads generalized using a traditional method at IGN (the French national map agency) and images of roads generalized by artificial intelligence (AI) techniques, and especially deep learning. In this new approach, a deep learning model generates an image of the generalized roads from an image of the initial road, while the traditional approaches used to process vector topographic data. <Br>
+  <br>You can find below a definition of map generalization and a description of the usual transformations occuring in mountain roads generalization. Then, you can find some explanations about the presented images.
+  These informations are displayed on all pages of the survey, so do not hesitate to read it again when you think it is nessecary. <br>
   <section class="def"> <h2>Definition</h2>
-  Map generalisation seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and conserve the information.<br>
+  Map generalisation seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and preserve the geography depicted by the initial dataset.<br>
   <img src="images\gen.png" class="img3"><br>
-  Here is an example of illustration of map generealization from (Barrault et al, 2001), it represent the generalization of the database BD Topo ® at 1 : 50 000 on a city area by AGENT process. <br>
-  <BR>The mountain road generalization combined the following process in order to avoid symbol coalescence.<br>
+  Here is an example of map generalization from the European AGENT project (Barrault et al, 2001). It represents the generalization of the database BD Topo® at 1:50 000 scale on a city area by the AGENT process. <br>
+  <BR>The mountain road generalization combines the following operations/transformations in order to avoid symbol coalescence:<br>
   <div class="image_row">
-    <div class="col"><img src="images\enlargement.png" class="img"> turn enlargement </div>
+    <div class="col"><img src="images\enlargement.png" class="img"> bend enlargement </div>
     <div class="col"><img src="images\smoothing.png" class="img"> shape smoothing </div>
-    <div class="col"><img src="images\simplify.png" class="img"> simplifying </div>
+    <div class="col"><img src="images\simplify.png" class="img"> simplification (that removes some bends in a series) </div>
   </div>
   <h2>Data</h2>
-    The intial image came from the database of roads of the french national map agency (IGN) and are detailled for a display at 1:25 000 scale.
-    The target scale is 1:250 000. All images are represented at the same scale in a 2.5km large square. Roads width represent the importance of the road.
+    The intial image comes from the topographic database of the French national mapping agency (IGN). These roads are detailed for a display between 1:10 000 scale and 1:25 000 scale.
+    The target scale is 1:250 000 and the reference data is generalised for an optimal display at this scale. All images are represented at the same scale in a 2.5km large square. Road symbol width is adapted to the importance of the road (more important roads have wider symbols).
   </section>
-  So are you ready ?<br>
+  When you are ready...<br>
   <button class="button" type="button" id="start">
-    YES ! Let's start.
+    Let's start the survey.
   </button>
 </div>
 
 <div class="evaluate" id="eval">
   <h2>Evaluation</h2>
-  In the following part we will ask you to answere a serie of 3 questions for each of 7 paires of images. <br>
-  We call well <b>generalized</b> an image that follow map generalization and mountain roads generalisation definitions.<br>
-  Then , we call <b>realistic</b> images that look like to a road map.<br>
-  Finally, an image is <b>readible</b> if all roads shape and carateristics are distingishable.<br>
+  In the following part we will ask you to answer a series of 3 questions for each of 7 pairs of images. <br>
+  We call well <b>generalized</b> an image in which the three types of operations have been applied properly.<br>
+  Then , we call <b>realistic</b>, images that look like real map (the deep learning model may generate unrealistic images).<br>
+  Finally, an image is <b>readable</b> if the coalescence of road symbol has been removed.<br>
 
-  <section>  <h4>Images</h4> Here is an intial road and it's generalisation <br>
+  <section>  <h4>Images</h4> Here is an intial road and its generalisation <br>
   <div class="image_row" id="image_row"></div>
   </section>
   <h4>Questions</h4>
@@ -70,7 +70,7 @@
   <input type="radio" id="vb1" name="Q1" value="very bad">
   <label for="vb1">Very bad</label>
   </form></section>
-  <section>  Q2 : Do you think this image seems reallist ?
+  <section>  Q2 : Do you think this image seems realistic ?
   <form class="form">
   <input type="radio" id="vg2" name="Q1" value="very good">
   <label for="vg2">Very good</label><br>
@@ -81,7 +81,7 @@
   <input type="radio" id="vb2" name="Q1" value="very bad">
   <label for="vb2">Very bad</label>
   </form></section>
-  <section>  Q3 : Do you think the image is readible ?
+  <section>  Q3 : Do you think the image is readable ?
   <form class="form">
   <input type="radio" id="vg3" name="Q1" value="very good">
   <label for="vg3">Very good</label><br>
@@ -100,22 +100,22 @@
 
 <div class="rank" id="rank">
 
-  <h2>Ranking</h2>
+    <h2>Ranking</h2>
 
-  <section>  <h4>Images</h4>   <div id="init_image"></div>  <br> Here are some generalisation of the previous image <br>
-    <div class="image_row" id="row"></div>
-  </section>
-  <section> <h4>Ranking</h4> Drag and drop the generalization in your preference order.</section>
-  <div class="image_row">The best     <img src="images\fleche.jpg" class="imglg">The worst</div>
-  <div class="empty_row"  id="empty_row"></div>
-  <button class="cancel" id="cancel" type="button">Cancel</button>
-  <button class="button cansubrank" type="button" disabled=true>Validate</button>
+    <section>  <h4>Images</h4>   <div id="init_image"></div>  <br> Here are some generalized versions of the previous image <br>
+      <div class="image_row" id="row"></div>
+    </section>
+    <section> <h4>Ranking</h4> Drag and drop the generalization in your preference order.</section>
+    <div class="image_row">The best     <img src="images\fleche.jpg" class="imglg">The worst</div>
+    <div class="empty_row"  id="empty_row"></div>
+    <button class="cancel" id="cancel" type="button">Cancel</button>
+    <button class="button cansubrank" type="button" disabled=true>Validate</button>
 </div>
 
 
 <div class="output" id= "out">
   <h2>Participant information</h2>
-  How often do you use map (paper or online map):
+  How often do you use maps (paper or online map):
   <form class='infos'>
     <input type="radio" id="d" name="O1" value="Daily">
     <label for="d">Daily</label><br>
@@ -130,15 +130,15 @@
   How familiar were you with the concept of map generalization before this test:
   <form class='infos'>
     <input type="radio" id="W1" name="O2" value="W1">
-    <label for="W1">Well, I am a specialist of map generalisation</label><br>
+    <label for="W1">Very familiar, I am a specialist of map generalisation</label><br>
     <input type="radio" id="W2" name="O2" value="W2">
-    <label for="W2">Well, I am a specialist of geo-information or visualisation</label><br><br>
+    <label for="W2">Familiar, I am a specialist of geo-information or visualisation</label><br><br>
     <input type="radio" id="M1" name="O2" value="M1">
-    <label for="M1">Medium, I had eared about it during my studies.</label><br>
+    <label for="M1">Fairly familiar, I have heard about it during my education.</label><br>
     <input type="radio" id="M2" name="O2" value="M2">
-    <label for="M2">Medium, I have eared about it in an other context.</label><br><br>
+    <label for="M2">Fairly familiar, I have heard about it in another context.</label><br><br>
   <input type="radio" id="L1" name="O2" value="L">
-  <label for="L1">Low, I did not eared about this before</label>
+  <label for="L1">Not familiar, I never heard about it before</label>
   </form><br>
   Are you :
   <form class='infos'>
@@ -147,7 +147,7 @@
   <input type="radio" id="Female" name="O3" value="Female">
   <label for="Female">A woman</label><br>
   <input type="radio" id="Other" name="O3" value="Other">
-  <label for="Other">Other / I do not want to answere</label><br>
+  <label for="Other">Other / I do not want to answer</label><br>
   </form><br>
   Are you aged :
   <form class='infos'>
@@ -158,7 +158,7 @@
   <input type="radio" id="O" name="O4" value="Female">
   <label for="O">More than 50.</label><br>
   <input type="radio" id="VO" name="O4" value="Other">
-  <label for="VO">I do not want to answere</label><br>
+  <label for="VO">I do not want to answer</label><br>
   </form><br>
 </div>
 
