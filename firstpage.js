@@ -36,7 +36,7 @@ document.getElementById("rank").style.display = "none";
 document.getElementById("out").style.display = "none";
 document.getElementById("thanks").style.display = "none";
 document.getElementById("send").style.display = "none";
-
+document.getElementById("rank_smart").style.display = "none";
 
 window.addEventListener('beforeunload',function (event){
   if (finish==false){
@@ -65,7 +65,9 @@ document.addEventListener('click',function(){
         if (f[question][opt].checked) {infos+=opt+",";}
       }
     }
-    infos+= String(Date.now()-itime);
+    infos+= String(Date.now()-itime)+',';
+    infos+= smart;
+    console.log(infos);
   }
   document.getElementById("sentence").value=saisie+infos;
 });
@@ -102,13 +104,30 @@ cancel.addEventListener('click',function(e){
   butrank[0].disabled = true;
 });
 
+
+
+var smart=false
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ smart=true
+}
 function saisir(page){
   if(page==7 ||page==14){
-    var im=sequence_r[(page-1)%6];
-    var f =document.querySelectorAll(".empty_square");
-    saisie+=" rank 2"+im+",";
-    for (let question = 0; question <f.length; question++) {
-      saisie+=f[question].querySelectorAll(".img")[0].id+",";
+    if (smart){
+      var im=sequence_r[(page-1)%6];
+      var f =document.getElementById('row_smart').querySelectorAll(".img");
+      saisie+=" rank 2"+im+",";
+      for (let question = 0; question <f.length; question++) {
+        console.log(f[question].id+",");
+        saisie+=f[question].id+",";
+
+      }
+    }else{
+      var im=sequence_r[(page-1)%6];
+      var f =document.querySelectorAll(".empty_square");
+      saisie+=" rank 2"+im+",";
+      for (let question = 0; question <f.length; question++) {
+        saisie+=f[question].querySelectorAll(".img")[0].id+",";
+      }
     }
   } else if (page==15) {
     saisie+=" infos,"
@@ -134,6 +153,7 @@ function saisir(page){
 }}
 
 function open_next(page){
+
   progress.value=page*100/15
   if(page==6 ||page==13){
     var im=sequence_r[page%6];
@@ -144,14 +164,26 @@ function open_next(page){
     document.getElementById("init_image").innerHTML="<img src=\"images\\image_rank\\i2"+im+".png\"  class=\"img\" draggable=\"false\">";
     document.getElementById("empty_row").innerHTML="<div class=\"empty_square\" value=\"1\"></div><div class=\"empty_square\" value=\"2\"></div><div class=\"empty_square\" value=\"2\"></div><div class=\"empty_square\" value=\"2\"></div>"
     document.getElementById("row").innerHTML="<img src=\"images\\image_rank\\p2"+im+".png\" draggable=\"true\" class=\"img\" id=\"p\"><img src=\"images\\image_rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"r\"><img src=\"images\\image_rank\\u2"+im+".png\" draggable=\"true\" class=\"img\" id=\"u\" ><img src=\"images\\image_rank\\c2"+im+".png\" draggable=\"true\" class=\"img\" id=\"c\">";
-    document.getElementById("rank").style.display = "inherit";
-    draganddrop();
+    document.getElementById("row_smart").innerHTML=
+      "<div class='col' id='col0'><img src=\"images\\image_rank\\p2"+im +".png\" draggable=\"true\" class=\"img\" id=\"p\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
+      +"<div class='col' id='col1'><img src=\"images\\image_rank\\r2"+im+".png\" draggable=\"true\" class=\"img\" id=\"r\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
+      +"<div class='col' id='col2'><img src=\"images\\image_rank\\u2"+im+".png\" draggable=\"true\" class=\"img\" id=\"u\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>"
+      +"<div class='col' id='col3'><img src=\"images\\image_rank\\c2"+im+".png\" draggable=\"true\" class=\"img\" id=\"c\"><div class='row'><button class='classementg' type='button'>	&lt;	&lt;</button><button class='classementd' type='button'>&gt; 	&gt;</button></div></div>";
+    if (smart){
+          document.getElementById("rank").style.display = "none";
+          document.getElementById("rank_smart").style.display = "inherit";
+          rankwitharrow();
+    }else{
+          document.getElementById("rank").style.display = "inherit";
+          document.getElementById("rank_smart").style.display = "none";
+          draganddrop();}
   } else if (page==14) {
     document.getElementById("def").style.display = "none";
     document.getElementById("progress").style.display = "inherit";
     document.getElementById("rank").style.display = "none";
     document.getElementById("out").style.display = "inherit";
     document.getElementById("send").style.display = "inherit";
+    document.getElementById("rank_smart").style.display = "none";
   }else if (page>14){
       finish=true;
       document.getElementById("progress").style.display = "inherit";
@@ -162,6 +194,7 @@ function open_next(page){
       document.getElementById("eval").style.display = "none";
       document.getElementById("thanks").style.display = "inherit";
       document.getElementById("def").style.display = "none";
+      document.getElementById("rank_smart").style.display = "none";
  }else{
     var im=sequence_e[page];
     document.getElementById("def").style.display = "inherit";
@@ -171,6 +204,7 @@ function open_next(page){
     document.getElementById("send").style.display = "none";
     document.getElementById("image_row").innerHTML=  "<img src=\"images\\image_eval\\i"+im.substring(1,im.length)+".png\" class=\"img\">  <img src=\"images\\fleche.jpg\" class=\"imgdemi\"><img src=\"images\\image_eval\\"+im+".png\" class=\"img\">"
     document.getElementById("eval").style.display = "inherit";
+    document.getElementById("rank_smart").style.display = "none";
   }
 };
 
@@ -196,7 +230,42 @@ function reinitialiser(){
   }
 }
 
+function rankwitharrow(){
+  var bg=document.querySelectorAll('.classementg');
+  var bd=document.querySelectorAll('.classementd');
+  var ligne=document.querySelectorAll('.img');
+  for (let i=0; i<bg.length; i++){
+    bg[i].addEventListener('click',function(){
+      //déplacement vers la gauche
+      var a=document.getElementById('col'+(i-1)).innerHTML;
+      var b=document.getElementById('col'+(i)).innerHTML;
+      document.getElementById('col'+(i-1)).innerHTML=b;
+      document.getElementById('col'+(i)).innerHTML=a;
+      rankwitharrow();
+    })
+    bd[i].addEventListener('click',function(){
+      //déplacmeent vers la droite
+      var a=document.getElementById('col'+(i)).innerHTML;
+      var b=document.getElementById('col'+(i+1)).innerHTML;
+      document.getElementById('col'+(i)).innerHTML=b;
+      document.getElementById('col'+(i+1)).innerHTML=a;
+      rankwitharrow();
+    })
+  }
+  document.addEventListener('click',function(){
+    console.log('click');
+    //activation de toutes les boutons
+    for (let i=0; i<bg.length; i++){
+      bd[i].disabled = false;
+      bg[i].disabled = false;
+    }
+    //désactivation de 0g
+    document.getElementById('col0').querySelectorAll('.classementg')[0].disabled = true;
+    //désactivation de 3d
+    document.getElementById('col3').querySelectorAll('.classementd')[0].disabled = true;
 
+  })
+}
 function draganddrop(){
   let draggedItem=null;
   var imgs= document.querySelectorAll('.img');

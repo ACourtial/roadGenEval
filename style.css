@@ -6,8 +6,6 @@
   flex-direction: row;
   align-items: center;
   align-content: : center;
-
-
 }
 #sentence{display:none;}
 .img{
@@ -31,7 +29,9 @@
   width:50px;
   height:50px;
 }
-
+.image_row{
+    max-width: 95%;
+}
 .empty_square{
   width:120px;
   height:120px;
