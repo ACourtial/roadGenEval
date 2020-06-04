@@ -39,6 +39,7 @@ document.getElementById("send").style.display = "none";
 document.getElementById("rank_smart").style.display = "none";
 
 window.addEventListener('beforeunload',function (event){
+
   if (finish==false){
     // Cancel the event as stated by the standard.
     event.preventDefault();
@@ -107,8 +108,9 @@ cancel.addEventListener('click',function(e){
 
 
 var smart=false
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mozilla/i.test(navigator.userAgent) ) {
  smart=true
+ console.log('ok');
 }
 function saisir(page){
   if(page==7 ||page==14){
@@ -253,7 +255,6 @@ function rankwitharrow(){
     })
   }
   document.addEventListener('click',function(){
-    console.log('click');
     //activation de toutes les boutons
     for (let i=0; i<bg.length; i++){
       bd[i].disabled = false;
