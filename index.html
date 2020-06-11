@@ -7,18 +7,33 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="style.css" rel="stylesheet">
+  <link href="toolstips.css" rel="stylesheet">
   <title>Roads generalization</title>
 
 </head>
 
 <body>
   <section class="def" id="def">
-    <h2>Reminder</h2>
-    <b>Map generalization</b> seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide a readable map and preserve the geography depicted by the initial dataset.<br>
-    The <b>generalization of mountain roads</b> combines the following operations/transformations: bend enlargement, shape smoothing and simplification (to avoid symbol coalescence).<br>
-    The intial image comes from the topographic database of the French national mapping agency (IGN). These roads are detailed for a display between 1:10 000 scale and 1:25 000 scale.
-    The target scale is 1:250 000 and the reference data is generalised for an optimal display at this scale. All images are represented at the same scale in a 2.5km large square. Road symbol width is adapted to the importance of the road (more important roads have wider symbols).<br>
-  </section>
+    <h2>Reminder <button class="hide" id="showdef" display="none">Display definitions.  </button></h2>
+    <div id=ct>
+    <h4>Definiton</h4>
+    Map generalisation seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and preserve the geography depicted by the initial dataset.<br>
+    <img src="images\gen.png" class="img3"><br>
+    Here is an example of map generalization from the European AGENT project (Barrault et al, 2001). It represents the generalization of the database BD Topo® at 1:50 000 scale on a city area by the AGENT process. <br>
+    <BR>The mountain road generalization combines the following operations/transformations in order to avoid symbol <div class="tooltip"> coalescence
+          <span class="tooltiptext">  Coalescence is when one or several symbol are gather and cannot be display fully.</span>
+        </div>:<br>
+    <div class="image_row">
+      <div class="col"><img src="images\enlargement.png" class="img"> bend enlargement </div>
+      <div class="col"><img src="images\smoothing.png" class="img"> shape smoothing </div>
+      <div class="col"><img src="images\simplify.png" class="img"> simplification (that removes some bends in a series) </div>
+    </div>
+    <h4>Data</h4>
+      The intial image comes from the topographic database of the French national mapping agency (IGN). These roads are detailed for a display between 1:10 000 scale and 1:25 000 scale.
+      The target scale is 1:250 000 and the reference data is generalised for an optimal display at this scale. All images are represented at the same scale in a 2.5km large square. Road symbol width is adapted to the importance of the road (more important roads have wider symbols).
+
+    </div>
+    </section>
   <br>
 <progress id="progress" max="100" value=0>  </progress>
 <div class="index" id="entrance">
@@ -27,12 +42,14 @@
   <br>
   We will present you images of roads generalized using a traditional method at IGN (the French national map agency) and images of roads generalized by artificial intelligence (AI) techniques, and especially deep learning. In this new approach, a deep learning model generates an image of the generalized roads from an image of the initial road, while the traditional approaches used to process vector topographic data. <Br>
   <br>You can find below a definition of map generalization and a description of the usual transformations occuring in mountain roads generalization. Then, you can find some explanations about the presented images.
-  These informations are displayed on all pages of the survey, so do not hesitate to read it again when you think it is nessecary. <br>
+  These informations can be displayed on all pages of the survey, so do not hesitate to read it again when you think it is nessecary. <br>
   <section class="def"> <h2>Definition</h2>
   Map generalisation seeks to adapt a precise geographic dataset for visualisation at a smaller scale. It should provide readable map and preserve the geography depicted by the initial dataset.<br>
   <img src="images\gen.png" class="img3"><br>
   Here is an example of map generalization from the European AGENT project (Barrault et al, 2001). It represents the generalization of the database BD Topo® at 1:50 000 scale on a city area by the AGENT process. <br>
-  <BR>The mountain road generalization combines the following operations/transformations in order to avoid symbol coalescence:<br>
+  <BR>The mountain road generalization combines the following operations/transformations in order to avoid symbol <div class="tooltip"> coalescence
+        <span class="tooltiptext">  Coalescence is when one or several symbol are gather and cannot be display fully.</span>
+      </div>:<br>
   <div class="image_row">
     <div class="col"><img src="images\enlargement.png" class="img"> bend enlargement </div>
     <div class="col"><img src="images\smoothing.png" class="img"> shape smoothing </div>
@@ -51,15 +68,14 @@
 <div class="evaluate" id="eval">
   <h2>Evaluation</h2>
   In the following part we will ask you to answer a series of 3 questions for each of 7 pairs of images. <br>
-  We call well <b>generalized</b> an image in which the three types of operations have been applied properly.<br>
-  Then , we call <b>realistic</b>, images that look like real map (the deep learning model may generate unrealistic images).<br>
-  Finally, an image is <b>readable</b> if the coalescence of road symbol has been removed.<br>
 
-  <section>  <h4>Images</h4> Here is an intial road and its generalisation <br>
+  <section>  <h4>Images</h4> Here is an intial road and its generalization <br>
   <div class="image_row" id="image_row"></div>
   </section>
   <h4>Questions</h4>
-  <section>  Q1 : Do you think roads on this image are well generalized ?
+  <section>  Q1 : How well do you think the roads are <div class="tooltip"> generalized
+        <span class="tooltiptext">  We call well <b>generalized</b> an image in which the three types of operations have been applied properly.</span>
+      </div> ?
   <form class="form">
   <input type="radio" id="vg1" name="Q1" value="very good">
   <label for="vg1">Very good</label><br>
@@ -70,7 +86,9 @@
   <input type="radio" id="vb1" name="Q1" value="very bad">
   <label for="vb1">Very bad</label>
   </form></section>
-  <section>  Q2 : Do you think this image seems realistic ?
+  <section>  Q2 : How well do you think the genralized image seems  <div class="tooltip"> realistic
+        <span class="tooltiptext">  We call <b>realistic</b>, images that looks like a map that have been traditionally produce. The deep learning model may generate unrealistic images.</span>
+      </div> ?
   <form class="form">
   <input type="radio" id="vg2" name="Q1" value="very good">
   <label for="vg2">Very good</label><br>
@@ -81,7 +99,9 @@
   <input type="radio" id="vb2" name="Q1" value="very bad">
   <label for="vb2">Very bad</label>
   </form></section>
-  <section>  Q3 : Do you think the image is readable ?
+  <section>  Q3 : How well do you think the generalized image is <div class="tooltip">readable ?
+    <span class="tooltiptext">An image is <b>readable</b> if you can read a way there, especially path should not be coalescent.
+    </div>
   <form class="form">
   <input type="radio" id="vg3" name="Q1" value="very good">
   <label for="vg3">Very good</label><br>

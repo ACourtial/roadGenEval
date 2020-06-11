@@ -29,6 +29,7 @@ const progress =document.getElementById('progress');
 
 
 //Initial display
+
 document.getElementById("def").style.display = "none";
 document.getElementById("progress").style.display = "none";
 document.getElementById("eval").style.display = "none";
@@ -108,7 +109,7 @@ cancel.addEventListener('click',function(e){
 
 
 var smart=false
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mozilla/i.test(navigator.userAgent) ) {
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
  smart=true
  console.log('ok');
 }
@@ -153,12 +154,27 @@ function saisir(page){
   }
 
 }}
+var st=true;
+
+document.getElementById("showdef").addEventListener('click',function(){
+  if (st){
+      document.getElementById("ct").style.display = "inherit";
+      st=false;
+      document.getElementById("showdef").innerHTML="Hide definitions.";
+  }else{
+      document.getElementById("ct").style.display = "none";
+      st=true;
+      document.getElementById("showdef").innerHTML="Display definitions.";
+}
+});
+
 
 function open_next(page){
 
   progress.value=page*100/15
   if(page==6 ||page==13){
     var im=sequence_r[page%6];
+    document.getElementById("ct").style.display = "none";
     document.getElementById("def").style.display = "inherit";
     document.getElementById("progress").style.display = "inherit";
     document.getElementById("eval").style.display = "none";
@@ -180,6 +196,8 @@ function open_next(page){
           document.getElementById("rank_smart").style.display = "none";
           draganddrop();}
   } else if (page==14) {
+
+    document.getElementById("ct").style.display = "none";
     document.getElementById("def").style.display = "none";
     document.getElementById("progress").style.display = "inherit";
     document.getElementById("rank").style.display = "none";
@@ -188,6 +206,7 @@ function open_next(page){
     document.getElementById("rank_smart").style.display = "none";
   }else if (page>14){
       finish=true;
+      document.getElementById("ct").style.display = "none";
       document.getElementById("progress").style.display = "inherit";
       document.getElementById("send").style.display = "none";
       document.getElementById("out").style.display = "none";
@@ -199,6 +218,7 @@ function open_next(page){
       document.getElementById("rank_smart").style.display = "none";
  }else{
     var im=sequence_e[page];
+    document.getElementById("ct").style.display = "none";
     document.getElementById("def").style.display = "inherit";
     document.getElementById("progress").style.display = "inherit";
     document.getElementById("entrance").style.display = "none";
@@ -290,6 +310,7 @@ function draganddrop(){
     rk.addEventListener('dragover',function(e){e.preventDefault();});
     rk.addEventListener('dragenter',function(e){e.preventDefault();});
     rk.addEventListener('drop',function(e){
+    e.preventDefault();
     if (draggedItem.className=="img"){
       this.append(draggedItem);
     }
